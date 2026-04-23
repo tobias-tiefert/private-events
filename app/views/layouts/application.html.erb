@@ -24,6 +24,15 @@
   </head>
 
   <body>
-    <%= yield %>
+    <nav>
+      <%= link_to "Let's meet", root_path, class: "logo" %>
+      <ul class="navigation">
+        <%= link_to "Find Events", root_path, class: "navigation-item" %>
+        <%= link_to "Create Events", new_event_path, class: "navigation-item" %>
+      </ul>
+    </nav>
+    <main>
+      <%= yield %>
+    </main>
   </body>
 </html>
