@@ -1,0 +1,10 @@
+
+<%= link_to "Back to all events", root_path, class: "back-button"%>
+<div class="event-detail">
+  <div class="event-detail__time-and-location">
+    <%= tag.div "#{@event.date.to_formatted_s(:long_ordinal)}, #{@event.time.strftime('%l:%M %p').downcase}", class: "event-detail_time"%>
+    <%= tag.div @event.location, class: "event-detail__location"%>
+  </div>
+  <%= tag.h1 @event.title, class: "event-detail__title"%>
+  <%= tag.p @event.description, class: "event-detail__description"%>
+</div>
