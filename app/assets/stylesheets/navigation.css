@@ -1,0 +1,58 @@
+@layer components{
+  .logo{
+  font-family: var(--logo-font);
+  text-decoration: none;
+  font-size: 28px;
+} 
+.main-navigation{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 3rem;
+}
+.main-navigation a{
+  text-decoration: none;
+}
+.navigation{
+  display: flex;
+  gap: 1.5rem;
+}
+
+.login-navigation{
+  display: flex;
+  gap: 1rem;
+}
+.main-navigation{
+  display: flex;
+}
+.navigation-item-svg{
+   --navigation-icon-color: var(--white-alpha-70)
+}
+
+.navigation-item{
+  font-weight: 600;
+  color: var(--white-alpha-70);
+  padding: 0.4rem 0 calc(0.3rem + 2px) ;
+
+}
+.navigation-item:hover{
+  color: var(--white);
+}
+.navigation-item--active{
+  color: var(--green);
+  border-bottom: 2px solid var(--green);
+  padding: 0.4rem 0 0.3rem;
+  
+}
+.navigation-item-svg svg:has(+ .navigation-item--active){
+    --navigation-icon-color: var(--green)
+  }
+.navigation-item-svg svg:has(+ .navigation-item:hover){
+    --navigation-icon-color: var(--white)
+  }
+.navigation-item-svg{
+  display: flex;
+  gap: 0.4rem;
+  align-items: center;
+}
+}

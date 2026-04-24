@@ -1,12 +1,12 @@
-<h2>
+<h2 class="event-type-title">
   Upcomming Events
 </h2>
 <div>
   <% @events.each do |event| %> <%# herb:disable all %>
   <div class="event-card">
-    <h2 class="event_card__title">
+    <h3 class="event_card__title">
       <%= link_to event.title, event_path(event.id) %>
-    </h2>
+    </h3>
     <%= tag.div "#{event.date.to_formatted_s(:long_ordinal)}, #{event.time.strftime('%l:%M %p').downcase}", class: "event-card__date-time"%>
     <%= tag.div event.location, class: "event-card__location"%>
     <%= link_to "Details", event_path(event.id), class: "button button-primary" %>
@@ -15,6 +15,6 @@
 </div>
 
 
-<h2>
+<h2 class="event-type-title">
   Past Events
 </h2>

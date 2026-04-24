@@ -1,0 +1,30 @@
+@layer tokkens{
+  :root {
+    --blue-300: #4A526C;
+    --blue-700: #16203F;
+    --blue-800: #0A1020;
+
+    --white: #fff;
+    --white-alpha-80: rgba(255,255,255,0.8);
+    --white-alpha-70: rgba(255,255,255,0.7);
+    --white-alpha-60: rgba(255,255,255,0.6);
+    --white-alpha-50: rgba(255,255,255,0.5);
+
+    --green: #81ECAB;
+    --green-highlight: #ACF8CA;
+
+    --off-green: #91B7A0;
+    --off-green-highlight:#DAFFE9;
+
+    --red: #DB5959;
+
+    --background: var(--blue-700);
+    --background-dark: var(var(--blue-800));
+
+    --text: var(--white);
+    --text-deemphasised: var(--white);
+
+    --primary: var(--green);
+    --primary-highlight: var(--green-highlight);
+   }
+}
