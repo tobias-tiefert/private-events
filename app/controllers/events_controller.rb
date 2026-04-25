@@ -18,7 +18,7 @@ class EventsController < ApplicationController
     @event = Event.new(allowed_event_params)
 
     if @event.save
-      redirect_to events_path
+      redirect_to root_path
     else
       render :new, status: :unprocessable_content
     end

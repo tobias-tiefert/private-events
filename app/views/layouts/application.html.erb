@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= content_for(:title) || "Private Events" %></title>
+    <title><%= content_for(:title) || "Let's meet" %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="application-name" content="Private Events">
@@ -27,7 +27,7 @@
     <nav class="main-navigation">
       <%= link_to "Let's meet", root_path, class: "logo" %>
       <div class="navigation">
-        <span class="navigation-item-svg">
+        <a href="<%= root_path%>" class="navigation-item-svg">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M6.75 3V5.25M17.25 3V5.25M3 18.75V7.5C3 6.90326 
                   3.23705 6.33097 3.65901 5.90901C4.08097 5.48705 
@@ -48,18 +48,18 @@
                   stroke="var(--navigation-icon-color)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
           <%= navigation_item("Find Events", root_path)%>
-         </span>
-        <span class="navigation-item-svg">
+        </a>
+        <a href="<%= new_event_path%>" class="navigation-item-svg">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M12 4.5V19.5M19.5 12H4.5" stroke="var(--navigation-icon-color)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
           <%= navigation_item("Create Events", new_event_path)%>
-        </span>
+        </a>
         
       </div>
       <div class="login-navigation">
-        <%= link_to "Login",root_path, class: "navigation-item" %>
-        <%= link_to "Signup",root_path, class: "navigation-item" %>
+        <%= link_to "Login",root_path, class: "login-navigation-item" %>
+        <%= link_to "Signup",root_path, class: "login-navigation-item" %>
       </div>
     </nav>
     <main>

@@ -54,4 +54,15 @@
   #root, #__next {
     isolation: isolate;
   }
+
+  /*
+    11. remove buttons default styling
+  */
+    button {
+    display: inline-block;
+    border: none;
+    cursor: pointer;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
 }
