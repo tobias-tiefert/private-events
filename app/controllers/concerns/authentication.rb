@@ -7,12 +7,13 @@ module Authentication
   end
 
   class_methods do
-    def allow_unauthenticated_access(**options)
-      skip_before_action :require_authentication, **options
+    def allow_unauthenticated_access(**)
+      skip_before_action(:require_authentication, **)
     end
   end
 
   private
+
     def authenticated?
       resume_session
     end
@@ -31,7 +32,7 @@ module Authentication
 
     def request_authentication
       session[:return_to_after_authenticating] = request.url
-      redirect_to new_session_path
+      redirect_to login_path
     end
 
     def after_authentication_url
