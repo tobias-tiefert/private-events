@@ -13,9 +13,9 @@
   .events{
     display: grid;
     row-gap: 5rem;
-    column-gap: 2rem;
+    column-gap: 3rem;
     margin: 1rem 0 4rem;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
   }
   .event-card{
     border-top: 5px solid var(--blue-800);
@@ -28,7 +28,7 @@
     margin-bottom: 0.8rem;
   }
   .event_card__title:hover{
-    color: var(--green-highlight);
+    color: var(--primary-highlight);
     text-decoration: underline;
   }
   .event-card__date-time{
@@ -62,9 +62,20 @@
     color: var(--primary);
     margin: 0.3rem 0 0.8rem;
   }
+  @media screen and (max-width: 600px) {
+    .event-detail__title{
+      font-size: 2.25rem;
+      line-height: 2.7rem;
+    }
+  }
   .event-detail__time-and-location{
     display: flex;
     justify-content: space-between;
+  }
+  @media screen and (max-width: 480px) {
+    .event-detail__time-and-location{
+      flex-direction: column;
+  }
   }
   .event-detail__time{
     font-size: 0.875rem;
@@ -72,6 +83,11 @@
   }
   .event-detail__location{
     font-size: 0.875rem;
+  }
+  .event-detail__edit-buttons{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2rem;
   }
 
   /* New Event Form*/
@@ -94,7 +110,7 @@
     color: var(--white);
   }
   .new-event-form input::placeholder{
-    color: var(--blue-400);
+    color: var(--blue-300);
   }
   
   .new-event-form input:focus{
@@ -111,10 +127,10 @@
     border: none;
   }
     .new-event-form textarea::placeholder{
-      color: var(--blue-400);
+      color: var(--blue-300);
     }
      textarea.new-event-form__title::placeholder{
-    color: var(--blue-300);
+    color: var(--blue-400);
   }
   .new-event-form textarea:focus{
     outline: 0 !important;
@@ -123,9 +139,30 @@
   .new-event-form input[type="submit"]{
     display: none;
   }
+  .new-event-form input[type="date"]{
+    display: inline-block;
+    width: auto;
+  }
+  .new-event-form input[type="time"]{
+    display: inline-block;
+    width: auto;
+  }
   .new-event-form__title{
     font-size: 3.3rem;
     line-height: 3.8rem;
     font-weight: 700;
   }
+  input[type="date"]::-webkit-calendar-picker-indicator,
+  input[type="datetime-local"]::-webkit-calendar-picker-indicator{
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="%23bbbbbb" class="size-6"> <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5" /></svg>');
+  }
+  input[type="time"]::-webkit-calendar-picker-indicator {
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="%23bbbbbb" class="size-6"> <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /></svg>');
+  }
+  .form-date-time{
+    display: flex;
+    flex-direction: row;
+    gap: 3rem;
+  }
+
 }

@@ -13,4 +13,8 @@
     <%= tag.h1 @event.title, class: "event-detail__title"%>
     <%= tag.p @event.description, class: "event-detail__description"%>
   </div>
+  <div class="event-detail__edit-buttons">
+    <%= link_to "Edit", edit_event_path(@event), class: "button" %>
+    <%= button_to "Delete", @event, method: :delete, data: { turbo_confirm: "Are you sure you want to delete this event?" }, class: "button button--danger" %>
+  </div>
 </div>

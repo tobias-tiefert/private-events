@@ -25,9 +25,16 @@ class EventsController < ApplicationController
   end
 
   def update
+    if @event.update(allowed_event_params)
+      redirect_to @event
+    else
+      render :edit, status: :unprocessable_content
+    end
   end
 
   def destroy
+    @event.destroy
+    redirect_to root_path
   end
 
   private
@@ -37,6 +44,6 @@ class EventsController < ApplicationController
   end
 
   def allowed_event_params
-    params.expect(event: %i[title description date time location])
+    params.expect(event: %i[title description time location])
   end
 end

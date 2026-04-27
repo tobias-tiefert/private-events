@@ -3,7 +3,11 @@
   font-family: var(--logo-font);
   text-decoration: none;
   font-size: 28px;
+  color: var(--blue-300);
 } 
+.logo:hover{
+  color: var(--primary);
+}
 .main-navigation{
   display: flex;
   justify-content: space-between;
@@ -38,12 +42,12 @@
   color: var(--white);
 }
 .navigation-item--active{
-  color: var(--green);
-  border-bottom: 2px solid var(--green);
+  color: var(--primary);
+  border-bottom: 2px solid var(--primary);
   padding: 0.4rem 0 0.3rem;
 }
 .navigation-item--active:hover{
-  color: var(--green);
+  color: var(--primary);
 }
 .login-navigation-item{
   font-weight: 600;
@@ -54,14 +58,14 @@
   color: var(--white);
 }
 .navigation-item-svg svg:has(+ .navigation-item--active){
-    --navigation-icon-color: var(--green)
+    --navigation-icon-color: var(--primary)
   }
 
 .navigation-item-svg svg:has(+ .navigation-item:hover){
     --navigation-icon-color: var(--white)
   }
 .navigation-item-svg svg:has(+ .navigation-item--active:hover){
-    --navigation-icon-color: var(--green)
+    --navigation-icon-color: var(--primary)
   }
 .navigation-item-svg{
   display: flex;

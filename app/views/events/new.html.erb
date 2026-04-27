@@ -1,11 +1,3 @@
 <div class="container-small new-event-form">
-  <%= form_with  model: @event do |form| %>
-    <%= form.text_area :title, required: true, size: '50x1', autofocus: true, placeholder: "Type your event’s name", class: "new-event-form__title"  %>
-    <%= form.text_area :description, required: true, size: '50x1', placeholder: "Type your event’s description" %>
-    <%= form.date_field :date, required: true %>
-    <%= form.time_field :time, required: true %>
-    <%= form.text_field :location, required: true, placeholder: "Type your event's location" %>
-    <%= form.button "Create Event", class: "button button--primary"  %>
-    <%= form.submit "Create Event"  %>
-  <% end %>
+  <%= render "form", event: @event, button_text: "Create Event" %>
 </div>
