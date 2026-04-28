@@ -9,6 +9,7 @@ module Authentication
   class_methods do
     def allow_unauthenticated_access(**)
       skip_before_action(:require_authentication, **)
+      before_action :resume_session
     end
 
     def allow_only_unauthenticated_access(**)
