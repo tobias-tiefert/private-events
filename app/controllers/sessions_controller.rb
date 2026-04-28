@@ -1,7 +1,6 @@
 class SessionsController < ApplicationController
-  allow_unauthenticated_access only: %i[ new create ]
+  allow_only_unauthenticated_access only: %i[ new create ]
   rate_limit to: 10, within: 3.minutes, only: :create, with: -> { redirect_to login_path, alert: "Try again later." }
-  before_action :no_login
   def new
   end
 
@@ -17,13 +16,5 @@ class SessionsController < ApplicationController
   def destroy
     terminate_session
     redirect_to login_path, status: :see_other
-  end
-
-  private
-
-  def no_login
-    return unless authenticated?
-
-      redirect_to root_path
   end
 end

@@ -10,9 +10,20 @@ module Authentication
     def allow_unauthenticated_access(**)
       skip_before_action(:require_authentication, **)
     end
+
+    def allow_only_unauthenticated_access(**)
+      skip_before_action(:require_authentication, **)
+      before_action(:require_no_authentication, **)
+    end
   end
 
   private
+
+    def require_no_authentication
+      return unless authenticated?
+
+        redirect_to root_path
+    end
 
     def authenticated?
       resume_session

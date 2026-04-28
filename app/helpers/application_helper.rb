@@ -6,4 +6,12 @@ module ApplicationHelper
       tag.span name, class: "navigation-item"
     end
   end
+
+  def login_navigation
+    if authenticated?
+      render "application/logout"
+    else
+     render "application/login_or_sign_up"
+    end
+  end
 end

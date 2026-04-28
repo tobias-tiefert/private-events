@@ -72,7 +72,16 @@
   gap: 0.4rem;
   align-items: center;
 }
-@media screen and (max-width: 600px) {
+.login-navigation-item-svg{
+  display: flex;
+  gap: 0.4rem;
+  align-items: center;
+  --navigation-icon-color: var(--white-alpha-70)
+}
+.login-navigation-item-svg svg:has(+ .login-navigation-item:hover){
+  --navigation-icon-color: var(--white)
+}
+@media screen and (max-width: 680px) {
   .navigation{
     background-color: var(--blue-800);
     position: fixed;
@@ -90,6 +99,9 @@
   .navigation-item{
     border: none;
     font-size: 0.75rem;
+  }
+  body{
+    padding-bottom: 12rem;
   }
 }
 }

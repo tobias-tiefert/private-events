@@ -1,7 +1,6 @@
 class SignUpsController < ApplicationController
-  allow_unauthenticated_access only: %i[ show create ]
+  allow_only_unauthenticated_access only: %i[ show create ]
   rate_limit to: 10, within: 3.minutes, only: :create, with: -> { redirect_to sign_up_path, alert: "Try again later." }
-  before_action :no_login
   def show
     @user = User.new
   end
@@ -20,11 +19,5 @@ class SignUpsController < ApplicationController
 
     def sign_up_params
       params.expect(user: %i[ username email_address password password_confirmation])
-    end
-
-    def no_login
-      return unless authenticated?
-
-        redirect_to root_path
     end
 end
