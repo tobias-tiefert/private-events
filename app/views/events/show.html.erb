@@ -7,11 +7,15 @@
   </a>
   <div class="event-detail">
     <div class="event-detail__time-and-location">
-      <%= tag.div "#{@event.date.to_formatted_s(:long_ordinal)}, #{@event.time.strftime('%l:%M %p').downcase}", class: "event-detail__time"%>
+      <%= formated_event_date_time(@event.date, @event.time, "event-detail__time") %>
       <%= tag.div @event.location, class: "event-detail__location"%>
     </div>
     <%= tag.h1 @event.title, class: "event-detail__title"%>
     <%= tag.p @event.description, class: "event-detail__description"%>
+    <div class="event-detail_host">
+      hosted by 
+      <%=  @event.host == Current.user ? "You" : @event.host.username%>
+    </div>
   </div>
   <div class="event-detail__edit-buttons">
     <%= link_to "Edit", edit_event_path(@event), class: "button" %>

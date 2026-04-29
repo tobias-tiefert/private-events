@@ -8,9 +8,7 @@
       <h3 class="event_card__title">
         <%= link_to event.title, event_path(event.id), class: "event_card__title" %>
       </h3>
-      <%= time_tag event.date%>
-      <%= time_tag event.time%>
-      <%= tag.div "#{event.date.to_formatted_s(:long_ordinal)}, #{event.time.strftime('%l:%M %p').downcase}", class: "event-card__date-time"%>
+      <%= formated_event_date_time(event.date, event.time, "event-detail__time") %>
       <%= tag.div event.location, class: "event-card__location"%>
       <%= link_to "Details", event_path(event.id), class: "button  event-card__button" %>
     </div>

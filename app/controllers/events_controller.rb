@@ -17,10 +17,12 @@ class EventsController < ApplicationController
 
   def create
     @event = Event.new(allowed_event_params)
+    @event.host_id = Current.user.id
 
     if @event.save
-      redirect_to root_path
+      redirect_to @event
     else
+      flash.now[:alert] = "Event couldn't be saved."
       render :new, status: :unprocessable_content
     end
   end
@@ -45,6 +47,6 @@ class EventsController < ApplicationController
   end
 
   def allowed_event_params
-    params.expect(event: %i[title description time location])
+    params.expect(event: %i[title description time date location host_id])
   end
 end

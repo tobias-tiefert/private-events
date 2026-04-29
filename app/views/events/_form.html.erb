@@ -3,7 +3,8 @@
     <%= form.text_area :description, required: true, size: '50x1', placeholder: "Type your event’s description" %>
     
     <div class="form-date-time">
-      <%= form.datetime_field :time, required: true %>
+      <%= form.date_field :date, required: true %>
+      <%= form.time_field :time, required: true %>
     </div>
     <%= form.text_field :location, required: true, placeholder: "Type your event's location" %>
     <%= form.button button_text, class: "button button--primary"  %>
