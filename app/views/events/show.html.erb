@@ -10,7 +10,34 @@
       <%= formated_event_date_time(@event.date, @event.time, "event-detail__time") %>
       <%= tag.div @event.location, class: "event-detail__location"%>
     </div>
+    
     <%= tag.h1 @event.title, class: "event-detail__title"%>
+    <%  if @event.attendees.include?(Current.user)%>
+      <%= render "cancle-attendence-button", invitation: @invitation %>
+      <%= attendees = @attendees.count
+        if attendees == 0
+          "no one attending"
+        elsif attendees == 1
+          "One person is attending"
+        else
+          "#{attendees} People are attending" 
+        end
+      %>
+      <% @attendees.each do |attendee|%>
+        <%=attendee.username%>
+      <%end%>
+    <% else %>
+      <%= render "attend-button" %>
+      <%= attendees = @attendees.count
+        if attendees == 0
+          "Be the first one who registers"
+        elsif attendees == 1
+          "One person is attending"
+        else
+          "#{attendees} People are attending" 
+        end
+      %>
+    <% end %>
     <%= tag.p @event.description, class: "event-detail__description"%>
     <div class="event-detail_host">
       hosted by 

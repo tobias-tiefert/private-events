@@ -10,4 +10,8 @@ class User < ApplicationRecord
   validates :username, presence: true
 
   normalizes :email_address, with: ->(e) { e.strip.downcase }
+
+  def invitation_for(event)
+    invitations.find_by(event_id: event.id) || Invitation.new
+  end
 end

@@ -84,6 +84,9 @@
   .event-detail__location{
     font-size: 0.875rem;
   }
+  .event-detail__attend-button{
+    margin: 1.4rem 0 2rem;
+  }
   .event-detail__edit-buttons{
     display: flex;
     justify-content: space-between;
