@@ -119,7 +119,26 @@
       flex-direction: column;
     }
   }
-
+  .event-detail__guest-list{
+    background-color: var(--blue-800);
+    padding: 1.5rem;
+    border-radius: 20px ;
+    margin-bottom: 2rem;
+  }
+  .event-detail__guest-list-headline{
+    font-size: 1rem;
+  }
+  .event-detail__attendees{
+    padding: 1rem;
+    margin: 0;
+    color: var(--white-alpha-70);
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+    gap: 1rem;
+  }
+.event-detail__attendee{
+  list-style: none;
+}
   /* New Event Form*/
   .new-event-form form{
     display: flex;
@@ -134,8 +153,8 @@
     display: block;
     width: 100%;
     background-color: var(--blue-700);
-     -webkit-appearance: none;
-     -moz-appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
     border: none;
     color: var(--white);
   }
@@ -153,7 +172,7 @@
     resize: none;
     background-color: var(--blue-700);
     -webkit-appearance: none;
-     -moz-appearance: none;
+    -moz-appearance: none;
     border: none;
   }
     .new-event-form textarea::placeholder{

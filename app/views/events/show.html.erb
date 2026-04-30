@@ -14,19 +14,16 @@
     <%= tag.h1 @event.title, class: "event-detail__title"%>
     <%  if @event.attendees.include?(Current.user)%>
       <div class="event-details__invitation">
-        <%= render "cancle-attendance-button", invitation: @invitation %>
-        <span class="event-details__number-of-attendees">
-          <%= render "number_of_attendees_including_you", attendees: @attendees %>
-        </span>
+        <%= render "cancle-attendance-button", invitation: @invitation, event: @event %>
+        <%= render "number_of_attendees_including_you", attendees: @attendees %>
       </div>
     <% else %>
       <div class="event-details__invitation">
-        <%= render "attend-button" %>
-        <span class="event-details__number-of-attendees">
-          <%= render "number_of_attendees", attendees: @attendees %>
-        </span>
+        <%= render "attend-button", invitation: @invitation, event: @event %>
+        <%= render "number_of_attendees", attendees: @attendees %>
       </div>
     <% end %>
+    <%= render "guest_list", attendees: @attendees %>
     <%= tag.p @event.description, class: "event-detail__description"%>
     <div class="event-detail_host">
       hosted by 

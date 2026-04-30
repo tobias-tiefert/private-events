@@ -1,9 +1,11 @@
-<%= num_attendees = attendees.count
-  if num_attendees == 0
-    "Be the first one who registers"
-  elsif num_attendees == 1
-    "One person is attending"
-  else
-    "#{num_attendees} People are attending" 
-  end
-%>
+<span class="event-details__number-of-attendees">
+  <%= num_attendees = attendees.count
+    if num_attendees == 0
+      "Be the first one who registers"
+    elsif num_attendees == 1
+      "One person is attending"
+    else
+      "#{num_attendees} People are attending" 
+    end
+  %>
+</span>

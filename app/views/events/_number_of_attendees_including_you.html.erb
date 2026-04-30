@@ -1,8 +1,10 @@
-<% num_attendees = attendees.count
-  if num_attendees == 1 %>
-    <span class='num_attendees__you'>You</span> are attending
-  <%elsif num_attendees == 2%>
-     <span class='num_attendees__you'>You</span> and one other person are attending
-  <%else%>
-    <span class='num_attendees__you'>You</span> and #{num_attendees} others are attending 
-<%end%>
+<span class="event-details__number-of-attendees">
+  <% num_attendees = attendees.count
+    if num_attendees == 1 %>
+      <span class='num_attendees__you'>You</span> are attending
+    <%elsif num_attendees == 2%>
+      <span class='num_attendees__you'>You</span> and one other person are attending
+    <%else%>
+      <span class='num_attendees__you'>You</span> and #{num_attendees} others are attending 
+  <%end%>
+</span>
