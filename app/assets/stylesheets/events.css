@@ -84,9 +84,7 @@
   .event-detail__location{
     font-size: 0.875rem;
   }
-  .event-detail__attend-button{
-    margin: 1.4rem 0 2rem;
-  }
+
   .event-detail__edit-buttons{
     display: flex;
     justify-content: space-between;
@@ -95,6 +93,31 @@
   .event-detail_host{
     margin-top: 1rem;
     color: var(--white-alpha-50);
+  }
+  .event-details__invitation{
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    margin: 1.7rem 0 2rem;
+  }
+  .event-details__number-of-attendees{
+    font-size: 0.875rem;
+  }
+  .num_attendees__you{
+    color: var(--primary);
+    font-weight: 700;
+  }
+  .num_attendees__you::before{
+    content: url(check-circle.svg);
+    width: 24px;
+    height: 24px;
+    vertical-align: -6px;
+    margin-right: 5px;
+  }
+  @media screen and (max-width: 680px) {
+    .event-details__invitation{
+      flex-direction: column;
+    }
   }
 
   /* New Event Form*/

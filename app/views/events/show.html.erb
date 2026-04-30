@@ -13,30 +13,19 @@
     
     <%= tag.h1 @event.title, class: "event-detail__title"%>
     <%  if @event.attendees.include?(Current.user)%>
-      <%= render "cancle-attendence-button", invitation: @invitation %>
-      <%= attendees = @attendees.count
-        if attendees == 0
-          "no one attending"
-        elsif attendees == 1
-          "One person is attending"
-        else
-          "#{attendees} People are attending" 
-        end
-      %>
-      <% @attendees.each do |attendee|%>
-        <%=attendee.username%>
-      <%end%>
+      <div class="event-details__invitation">
+        <%= render "cancle-attendance-button", invitation: @invitation %>
+        <span class="event-details__number-of-attendees">
+          <%= render "number_of_attendees_including_you", attendees: @attendees %>
+        </span>
+      </div>
     <% else %>
-      <%= render "attend-button" %>
-      <%= attendees = @attendees.count
-        if attendees == 0
-          "Be the first one who registers"
-        elsif attendees == 1
-          "One person is attending"
-        else
-          "#{attendees} People are attending" 
-        end
-      %>
+      <div class="event-details__invitation">
+        <%= render "attend-button" %>
+        <span class="event-details__number-of-attendees">
+          <%= render "number_of_attendees", attendees: @attendees %>
+        </span>
+      </div>
     <% end %>
     <%= tag.p @event.description, class: "event-detail__description"%>
     <div class="event-detail_host">
@@ -44,8 +33,10 @@
       <%=  @event.host == Current.user ? "You" : @event.host.username%>
     </div>
   </div>
-  <div class="event-detail__edit-buttons">
-    <%= link_to "Edit", edit_event_path(@event), class: "button" %>
-    <%= button_to "Delete", @event, method: :delete, data: { turbo_confirm: "Are you sure you want to delete this event?" }, class: "button button--danger" %>
-  </div>
+  <% if authenticated? && @event.host == Current.user%>
+    <div class="event-detail__edit-buttons">
+      <%= link_to "Edit", edit_event_path(@event), class: "button" %>
+      <%= button_to "Delete", @event, method: :delete, data: { turbo_confirm: "Are you sure you want to delete this event?" }, class: "button button--danger" %>
+    </div>
+  <%end%>
 </div>
