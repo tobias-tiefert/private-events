@@ -121,10 +121,26 @@
   }
   .event-detail__guest-list{
     background-color: var(--blue-800);
-    padding: 1.5rem;
+    height: 0;
+    padding: 0;
+    margin-bottom: 0;
     border-radius: 20px ;
-    margin-bottom: 2rem;
+    overflow: hidden;
+    transition:all 250ms;
+    will-change: height;
   }
+  .event-detail__guest-list *{
+    opacity: 0;
+    transition: all 600ms ease-in-out;
+  }
+  .guest-list--hide *{
+    opacity: 1;
+  }
+  .guest-list--hide{
+    height: auto;
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+}
   .event-detail__guest-list-headline{
     font-size: 1rem;
   }
@@ -139,6 +155,13 @@
 .event-detail__attendee{
   list-style: none;
 }
+.number-of-attendees__toggle{
+  color: var(--white);
+}
+.number-of-attendees__toggle:hover{
+  color: var(--primary);
+}
+
   /* New Event Form*/
   .new-event-form form{
     display: flex;

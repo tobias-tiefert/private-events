@@ -3,8 +3,8 @@
     if num_attendees == 1 %>
       <span class='num_attendees__you'>You</span> are attending
     <%elsif num_attendees == 2%>
-      <span class='num_attendees__you'>You</span> and one other person are attending
+      <span class='num_attendees__you'>You</span> and <a data-action="guest-list#toggle" href="" class="number-of-attendees__toggle">one other person</a> are attending
     <%else%>
-      <span class='num_attendees__you'>You</span> and #{num_attendees} others are attending 
+      <span class='num_attendees__you'>You</span> and <a data-action="guest-list#toggle" href="" class="number-of-attendees__toggle"><%=num_attendees%> others</a> are attending 
   <%end%>
 </span>
