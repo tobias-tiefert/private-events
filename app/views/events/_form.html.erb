@@ -1,6 +1,6 @@
 <%= form_with  model: event do |form| %>
-    <%= form.text_area :title, required: true, size: '50x1', autofocus: true, placeholder: "Type your event’s name", class: "new-event-form__title"  %>
-    <%= form.text_area :description, required: true, size: '50x1', placeholder: "Type your event’s description" %>
+    <%= form.text_area :title, required: true, size: '50x1', autofocus: true, placeholder: "Type your event’s name", class: "new-event-form__title", data: { controller: "form-height", form_height_target: "text_area", action: "input->form-height#adjust_height" }  %>
+    <%= form.text_area :description, required: true, size: '50x1', placeholder: "Type your event’s description", data: { controller: "form-height", form_height_target: "text_area", action: "input->form-height#adjust_height" } %>
     
     <div class="form-date-time">
       <%= form.date_field :date, required: true %>
