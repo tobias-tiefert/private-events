@@ -17,6 +17,11 @@
     margin: 1rem 0 4rem;
     grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
   }
+  .past_events{ 
+    color: var(--white-alpha-60);
+    --primary: var(--off-yellow);
+    --primary-highlight: var(--off-yellow-highlight);
+  }
   .event-card{
     border-top: 5px solid var(--blue-800);
     padding: 0.8rem 0;
@@ -131,15 +136,17 @@
   }
   .event-detail__guest-list *{
     opacity: 0;
-    transition: all 500ms ease-in-out;
+    transition: opacity 60ms ease-in-out;
   }
-  .guest-list--hide *{
+  .guest-list--show *{
     opacity: 1;
+    transition: opacity 470ms ease-in-out;
   }
-  .guest-list--hide{
+  .guest-list--show{
     height: auto;
     margin-bottom: 2rem;
     padding: 1.5rem;
+    transition:all 400ms;
 }
   .event-detail__guest-list-headline{
     font-size: 1rem;

@@ -12,14 +12,11 @@
     --white-alpha-60: rgba(255,255,255,0.6);
     --white-alpha-50: rgba(255,255,255,0.5);
 
-    --green: #81ECAB;
-    --green-highlight: #ACF8CA;
-
     --yellow: #D7CF77;
     --yellow-highlight: #EFDF2B;
 
-    --off-green: #91B7A0;
-    --off-green-highlight:#DAFFE9;
+    --off-yellow: #C0BE9F;
+    --off-yellow-highlight:#B0AB61;
 
     --red: #DB5959;
     --alert: var(--red);

@@ -1,3 +1,14 @@
-<h1><%= @user.username %></h1>
-<%= @user.sessions.first.updated_at %>
-<p>Find me in app/views/users/show.html.erb</p>
+<div class="container-user">
+  <h2 class="event-type-title">Upcoming events I'm going to host</h2>
+  <%= render "events/event_tile", events: @user.hosted_events.where("date >= ? ", Time.now), css_class: "events" %>
+
+  <h2 class="event-type-title">Upcoming events I'm going to attend</h2>
+  <%= render "events/event_tile", events: @user.attending_events.where("date >= ? ", Time.now), css_class: "events" %>
+
+  <h2 class="event-type-title">Past events I hosted</h2>
+  <%= render "events/event_tile", events: @user.hosted_events.where("date < ? ", Time.now), css_class: "events past_events" %>
+
+  <h2 class="event-type-title">Past events I attended</h2>
+  <%= render "events/event_tile", events: @user.attending_events.where("date < ? ", Time.now), css_class: "events past_events" %>
+
+</div>

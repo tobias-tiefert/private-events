@@ -5,6 +5,6 @@ export default class extends Controller {
 
   toggle(){
     event.preventDefault()
-    this.guest_listTarget.classList.toggle("guest-list--hide")
+    this.guest_listTarget.classList.toggle("guest-list--show")
   }
 }

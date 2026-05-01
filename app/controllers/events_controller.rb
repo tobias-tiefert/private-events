@@ -12,15 +12,14 @@ class EventsController < ApplicationController
   end
 
   def new
-    @event = Event.new
+    @event = Current.user.hosted_events.new
   end
 
   def edit
   end
 
   def create
-    @event = Event.new(allowed_event_params)
-    @event.host_id = Current.user.id
+    @event = Current.user.hosted_events.new(allowed_event_params)
 
     if @event.save
       redirect_to @event
