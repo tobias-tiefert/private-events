@@ -53,6 +53,11 @@
   }
 
   /* Events Details page*/
+  .past_event-detail{
+    color: var(--white-alpha-60);
+    --primary: var(--off-yellow);
+    --primary-highlight: var(--off-yellow-highlight);
+  }
   .container-small{
     max-width: 600px;
     width: 90vw;
@@ -131,16 +136,18 @@
     margin-bottom: 0;
     border-radius: 20px ;
     overflow: hidden;
-    transition:all 250ms;
-    will-change: height;
+    transition:all 300ms;
+    will-change:  all;
   }
   .event-detail__guest-list *{
     opacity: 0;
     transition: opacity 60ms ease-in-out;
+    transition-delay: 0;
   }
   .guest-list--show *{
     opacity: 1;
-    transition: opacity 470ms ease-in-out;
+    transition: opacity 400ms ease-in-out;
+    transition-delay: 100ms;
   }
   .guest-list--show{
     height: auto;

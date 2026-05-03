@@ -1,14 +1,21 @@
 <div class="container-user">
-  <h2 class="event-type-title">Upcoming events I'm going to host</h2>
-  <%= render "events/event_tile", events: @user.hosted_events.where("date >= ? ", Time.now), css_class: "events" %>
+  <% if @user.hosted_events.where("date >= ? ", Time.now).count > 0  %>
+    <h2 class="event-type-title">Upcoming events I'm going to host</h2>
+    <%= render "events/event_tile", events: @user.hosted_events.upcomming, css_class: "events" %>
+  <%end %>
 
-  <h2 class="event-type-title">Upcoming events I'm going to attend</h2>
-  <%= render "events/event_tile", events: @user.attending_events.where("date >= ? ", Time.now), css_class: "events" %>
+   <% if @user.attending_events.where("date >= ? ", Time.now).count > 0  %>
+    <h2 class="event-type-title">Upcoming events I'm going to attend</h2>
+    <%= render "events/event_tile", events: @user.attending_events.upcomming, css_class: "events" %>
+  <%end %>
 
-  <h2 class="event-type-title">Past events I hosted</h2>
-  <%= render "events/event_tile", events: @user.hosted_events.where("date < ? ", Time.now), css_class: "events past_events" %>
+   <% if @user.hosted_events.where("date < ? ", Time.now).count > 0  %>
+    <h2 class="event-type-title">Past events I've hosted</h2>
+    <%= render "events/event_tile", events: @user.hosted_events.past, css_class: "events past_events" %>
+  <%end %>
 
-  <h2 class="event-type-title">Past events I attended</h2>
-  <%= render "events/event_tile", events: @user.attending_events.where("date < ? ", Time.now), css_class: "events past_events" %>
-
+   <% if @user.attending_events.where("date < ? ", Time.now).count > 0  %>
+    <h2 class="event-type-title">Past events I've attended</h2>
+    <%= render "events/event_tile", events: @user.attending_events.past, css_class: "events past_events" %>
+  <%end %>
 </div>

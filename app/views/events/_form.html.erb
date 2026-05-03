@@ -3,7 +3,7 @@
     <%= form.text_area :description, required: true, size: '50x1', placeholder: "Type your event’s description", data: { controller: "form-height", form_height_target: "text_area", action: "input->form-height#adjust_height" } %>
     
     <div class="form-date-time">
-      <%= form.date_field :date, required: true %>
+      <%= form.date_field :date, required: true, min: Date.today %>
       <%= form.time_field :time, required: true %>
     </div>
     <%= form.text_field :location, required: true, placeholder: "Type your event's location" %>
