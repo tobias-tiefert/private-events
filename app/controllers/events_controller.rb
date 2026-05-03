@@ -1,7 +1,9 @@
 class EventsController < ApplicationController
   before_action :set_event, only: %i[ show edit update destroy ]
   before_action :verify_user, only: %i[edit update destroy ]
+
   allow_unauthenticated_access only: %i[ index show ]
+
   def index
     @events = Event.all
   end
@@ -48,8 +50,12 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
   end
 
+  def set_visibility
+    @event.visibility = params[:event][:visibility] == 0 ? "private_event" : "public_event"
+  end
+
   def allowed_event_params
-    params.expect(event: %i[title description time date location host_id])
+    params.expect(event: %i[title description time date location host_id visibility])
   end
 
   def verify_user

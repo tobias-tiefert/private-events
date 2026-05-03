@@ -11,6 +11,8 @@
       <%= tag.div @event.location, class: "event-detail__location"%>
     </div>
     <%= tag.h1 @event.title, class: "event-detail__title"%>
+    <%= tag.h2 @event.visibility%>
+
     <div data-controller="guest-list">
       <%  if @event.attendees.include?(Current.user)%>
         <div class="event-details__invitation">

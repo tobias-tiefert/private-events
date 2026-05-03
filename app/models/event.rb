@@ -4,7 +4,7 @@ class Event < ApplicationRecord
   has_many :attendees, through: :invitations
 
   validates :title, :description, :date, :time, :location, presence: true
-  validates :date, comparison: { greater_than_or_equal_to: Time.zone.today }
+  validates :date, comparison: { greater_than_or_equal_to: Time.zone.today }, on: :create
 
   enum :visibility, { private_event: 0, public_event: 1 }
 

@@ -186,7 +186,7 @@
   .new-event-form button{
     display: inline-block;
   } 
-  .new-event-form input{
+  .new-event-form input:not([type="checkbox"]){
     display: block;
     width: 100%;
     background-color: var(--blue-700);
@@ -195,8 +195,9 @@
     border: none;
     color: var(--white);
   }
-  .new-event-form input::placeholder{
-    color: var(--blue-300);
+  .new-event-form input[type="checkbox"]{
+  width: 1rem;
+  height: 1rem;
   }
   
   .new-event-form input:focus{
