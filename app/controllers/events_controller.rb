@@ -5,7 +5,7 @@ class EventsController < ApplicationController
   allow_unauthenticated_access only: %i[ index show ]
 
   def index
-    @events = Event.all
+    @events = Event.visible
   end
 
   def show
@@ -48,10 +48,6 @@ class EventsController < ApplicationController
 
   def set_event
     @event = Event.find(params[:id])
-  end
-
-  def set_visibility
-    @event.visibility = params[:event][:visibility] == 0 ? "private_event" : "public_event"
   end
 
   def allowed_event_params

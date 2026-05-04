@@ -12,6 +12,7 @@
     </div>
     <%= tag.h1 @event.title, class: "event-detail__title"%>
     <%= tag.h2 @event.visibility%>
+    <%= tag.h3 @event.invitations.count%>
 
     <div data-controller="guest-list">
       <%  if @event.attendees.include?(Current.user)%>

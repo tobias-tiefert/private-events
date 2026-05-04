@@ -8,6 +8,10 @@ class Event < ApplicationRecord
 
   enum :visibility, { private_event: 0, public_event: 1 }
 
+  scope :public_event, -> { where(visibility: "public_event") }
+  scope :invited, -> { where(invitations: { attendee_id: Current.user }) }
+  scope :hosted, -> { where(host_id: Current.user.id) }
+
   scope :past, -> { where(date: ...Time.zone.today).order(date: :desc) }
   scope :upcomming, -> { where(date: Time.zone.today..).order(date: :asc) }
 
@@ -17,5 +21,14 @@ class Event < ApplicationRecord
 
   def upcomming?
     date >= Time.zone.today
+  end
+
+  def self.visible
+    if Current.user.nil?
+      includes(:invitations).public_event
+    else
+      includes(:invitations).public_event.or(includes(:invitations).hosted)
+                            .or(includes(:invitations).invited)
+    end
   end
 end

@@ -195,9 +195,23 @@
     border: none;
     color: var(--white);
   }
+    .new-event-form input:not([type="checkbox"]){
+    display: block;
+    width: 100%;
+    background-color: var(--blue-700);
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    border: none;
+    color: var(--white);
+  }
   .new-event-form input[type="checkbox"]{
   width: 1rem;
   height: 1rem;
+  }
+  .checkbox{
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
   }
   
   .new-event-form input:focus{
