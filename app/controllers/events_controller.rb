@@ -10,7 +10,7 @@ class EventsController < ApplicationController
 
   def show
     @attendees = @event.attendees
-    @invitation = Current.user.invitation_for(@event)
+    @invitation = User.invitation_for(@event)
   end
 
   def new

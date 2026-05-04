@@ -2,9 +2,9 @@ class InvitationsController < ApplicationController
   def create
     @invitation = Invitation.new
     @event_id = params[:invitation][:event_id].to_i
-    puts @event_id
     @invitation.event_id = @event_id
     @invitation.attendee_id = Current.user.id
+    @invitation.response = "accepted"
 
   @invitation.save
       redirect_to event_path(@event_id)

@@ -11,7 +11,11 @@ class User < ApplicationRecord
 
   normalizes :email_address, with: ->(e) { e.strip.downcase }
 
-  def invitation_for(event)
-    invitations.find_by(event_id: event.id) || Invitation.new
+  def self.invitation_for(event)
+    if Current.user.nil?
+      Invitation.new
+    else
+    Current.user.invitations.find_by(event_id: event.id) || Invitation.new
+    end
   end
 end
