@@ -18,4 +18,8 @@ class User < ApplicationRecord
     Current.user.invitations.find_by(event_id: event.id) || Invitation.new
     end
   end
+
+  def self.current_user_id
+    Current.user.nil? ? 0 : Current.user.id
+  end
 end

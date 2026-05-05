@@ -169,13 +169,99 @@
 .event-detail__attendee{
   list-style: none;
 }
+/* private event guestlist */
+.private-event-detail__guest-list{
+    background-color: var(--blue-800);
+    margin-bottom: 0;
+    border-radius: 20px ;
+    margin: 2rem 0;
+    padding: 1.5rem;
+  }
+.private-event-detail__guest-list__headline{
+  font-family: var(--logo-font);
+  color: var(--primary);
+  font-size: 1.125rem;
+  margin-bottom: 1%;
+  font-weight: 400;
+}
+.private-event-detail__attendees{
+    padding: 1rem;
+    margin: 0;
+    color: var(--white-alpha-70);
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 2rem;
+  }
+
+  .declined-attendance{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  .declined-attendance__you{
+    display: flex;
+    align-items: center;
+    font-size: 0.875rem;
+    gap: 0.3rem;
+    color: var(--red);
+    font-weight: 800;
+  }
+  .response{
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--primary);
+    font-size: 0.875rem;
+  }
+.private-event-detail__attendee{
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
 .number-of-attendees__toggle{
   color: var(--white);
+}
+.private-event-details__invitation{
+  margin: 1rem 0;
 }
 .number-of-attendees__toggle:hover{
   color: var(--primary);
 }
-
+.invitation-headline{
+  font-family: var(--logo-font);
+  color: var(--primary);
+  font-size: 1.125rem;
+  font-weight: 400;
+}
+.tag{
+  background-color: var(--blue-800);
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: var(--primary);
+  padding: 5px 9px;
+  border-radius: 6px;
+}
+.private-event-tag{
+  font-size: 0.875rem;
+}
+.private-event-tag--invited{
+  color: var(--white-alpha-70);
+}
+.private-event-tag--declined{
+  color: var(--red);
+}
+.private-event-tag--accepted{
+  color: var(--primary);
+}
+.private-event-detail__attendee-name:has(+ .response-declined){
+  text-decoration: line-through;
+  color: var(--white-alpha-50);
+}
+.private-event-detail__attendee-name:has(+ .response-accepted){
+  color: var(--white);
+}
   /* New Event Form*/
   .new-event-form form{
     display: flex;

@@ -1,21 +1,27 @@
 <div class="container-user">
-  <% if @user.hosted_events.where("date >= ? ", Time.now).count > 0  %>
+  
+  <% if @user.attending_events.upcomming.where(invitations:{response: "invited"}).any?  %>
+    <h2 class="event-type-title">Your open invitations</h2>
+    <%= render "events/event_tile", events: @user.attending_events.upcomming.where(invitations:{response: "invited"}), css_class: "events" %>
+  <%end %>
+
+  <% if @user.hosted_events.upcomming.any?  %>
     <h2 class="event-type-title">Upcoming events I'm going to host</h2>
     <%= render "events/event_tile", events: @user.hosted_events.upcomming, css_class: "events" %>
   <%end %>
 
-   <% if @user.attending_events.where("date >= ? ", Time.now).count > 0  %>
+   <% if @user.attending_events.upcomming.where(invitations:{response: "accepted"}).any?  %>
     <h2 class="event-type-title">Upcoming events I'm going to attend</h2>
-    <%= render "events/event_tile", events: @user.attending_events.upcomming, css_class: "events" %>
+    <%= render "events/event_tile", events: @user.attending_events.upcomming.where(invitations:{response: "accepted"}), css_class: "events" %>
   <%end %>
 
-   <% if @user.hosted_events.where("date < ? ", Time.now).count > 0  %>
+   <% if @user.hosted_events.past.any?  %>
     <h2 class="event-type-title">Past events I've hosted</h2>
     <%= render "events/event_tile", events: @user.hosted_events.past, css_class: "events past_events" %>
   <%end %>
 
-   <% if @user.attending_events.where("date < ? ", Time.now).count > 0  %>
+   <% if @user.attending_events.past.where(invitations:{response: "accepted"}).any?  %>
     <h2 class="event-type-title">Past events I've attended</h2>
-    <%= render "events/event_tile", events: @user.attending_events.past, css_class: "events past_events" %>
+    <%= render "events/event_tile", events: @user.attending_events.past.where(invitations:{response: "accepted"}), css_class: "events past_events" %>
   <%end %>
 </div>

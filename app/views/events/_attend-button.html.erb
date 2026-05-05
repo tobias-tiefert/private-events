@@ -1,5 +1,7 @@
 <%= form_with  model: invitation do |form| %>
   <%= form.hidden_field :event_id, value: event.id %>
-  <%= form.button "Attend", class: "button button--primary event-detail__attend-button"  %>
+  <%= form.hidden_field :response, value: response %>
+  <%= form.hidden_field :attendee_id, value: attendee_id %>
+  <%= form.button button_text, class: css_class  %>
   <%= form.submit "Attend"  %>
 <% end %>

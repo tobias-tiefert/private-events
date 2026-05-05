@@ -1,0 +1,42 @@
+<div class="private-event-detail__guest-list">
+  <h2 class="private-event-detail__guest-list__headline">Guest list</h2>
+  <ul class="private-event-detail__attendees">
+    <% User.all.each do |user| 
+      invitation =  event.invitations.find_by(attendee: user)%>
+      <li class="private-event-detail__attendee">
+        <%=  tag.span user.username, class:"private-event-detail__attendee-name" %>
+        <%if invitation.nil? %>
+        <%= render "attend-button",button_text: "Invite", invitation: Invitation.new, event: event, response: "invited", attendee_id: user.id, css_class:  "button button--primary button--small" unless event.past? %>
+        <%elsif invitation.response == "accepted" %>
+          
+          <div class="response response-accepted">
+            <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="var(--primary)" class="size-4">
+            <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14Zm3.844-8.791a.75.75 0 0 0-1.188-.918l-3.7 4.79-1.649-1.833a.75.75 0 
+            1 0-1.114 1.004l2.25 2.5a.75.75 0 0 0 1.15-.043l4.25-5.5Z" clip-rule="evenodd" />
+          </svg>
+
+            <%= tag.span invitation.response, class: "private-event-tag private-event-tag--accepted " %>
+          </div>
+        <%elsif invitation.response == "declined" %>
+          <div class="response response-declined">
+            <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="var(--red)" class="size-4">
+            <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14Zm2.78-4.22a.75.75 0 0 1-1.06 0L8 9.06l-1.72 1.72a.75.75 0
+            1 1-1.06-1.06L6.94 8 5.22 6.28a.75.75 0 0 1 1.06-1.06L8 6.94l1.72-1.72a.75.75 0 1 1 1.06 1.06L9.06 8l1.72 1.72a.75.75 0 0 1
+            0 1.06Z" clip-rule="evenodd" />
+                    </svg>
+            <%= tag.span invitation.response, class: "private-event-tag private-event-tag--declined " %>
+          </div>
+        <%else%>
+          <div class="response">
+            <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="var(--white-alpha-70)" class="size-4">
+            <path d="M2.87 2.298a.75.75 0 0 0-.812 1.021L3.39 6.624a1 1 0 0 0 .928.626H8.25a.75.75 0 0 1 0 1.5H4.318a1 1 0 0 0-.927.626l-1.333 3.305a.75.75 0 0 0 .811 1.022 24.89 24.89 0 0 0 11.668-5.115.75.75 0 0 0 0-1.175A24.89 24.89 0 0 0 2.869 2.298Z" />
+          </svg>
+
+            <%= tag.span invitation.response, class: "private-event-tag private-event-tag--invited " %>
+          </div>
+        <%end%>
+      </li>
+    <%end%>
+
+  </ul>
+</div>

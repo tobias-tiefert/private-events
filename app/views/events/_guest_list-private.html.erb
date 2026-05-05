@@ -1,0 +1,5 @@
+<%if event.host == Current.user%>
+  <%= render "host_guest_list_private", event: event %>
+<%else%>
+  <%= render "invite_response", event: event, invitation: invitation, attendees: attendees.merge(Invitation.where(response: :accepted)) %>
+<%end%>

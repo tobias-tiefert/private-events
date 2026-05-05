@@ -27,6 +27,7 @@ class Event < ApplicationRecord
     if Current.user.nil?
       includes(:invitations).public_event
     else
+
       includes(:invitations).public_event.or(includes(:invitations).hosted)
                             .or(includes(:invitations).invited)
     end

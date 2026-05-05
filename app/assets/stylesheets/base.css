@@ -57,9 +57,15 @@
   --icon-color: var(--white);
   cursor: pointer;
 }
+.button--small{
+  font-size: 0.875rem;
+  padding: 6px 10px;
+  border-radius: 6px;
+}
 main{
   display: flex;
   flex-direction: column;
   align-items: center;
 }
+
 }
