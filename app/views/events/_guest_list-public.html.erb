@@ -1,0 +1,14 @@
+<div data-controller="guest-list">
+      <%  if event.attendees.include?(Current.user)%>
+        <div class="event-details__invitation">
+          <%= render "cancle-attendance-button", invitation: invitation, event: event unless @event.past? %>
+          <%= render "number_of_attendees_including_you", attendees: attendees %>
+        </div>
+      <% else %>
+        <div class="event-details__invitation">
+          <%= render "attend-button", button_text: "Attend", invitation: invitation, event: event, response: "accepted", attendee_id: user_id, css_class:  "button button--primary event-detail__attend-button" unless event.past? %>
+          <%= render "number_of_attendees", attendees: attendees %>
+        </div>
+      <% end %>
+      <%= render "guest_list", attendees: @attendees %>
+</div>

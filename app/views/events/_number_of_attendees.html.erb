@@ -1,0 +1,20 @@
+<span class="event-details__number-of-attendees">
+  <% num_attendees = attendees.count
+    if num_attendees == 0%>
+      <span>Be the first one who registers</span>
+    <%elsif num_attendees == 1%>
+      <span>
+        <a data-action="guest-list#toggle" href="" class="number-of-attendees__toggle">
+          One person 
+        </a>
+          is attending
+      </span>
+    <%else%>
+      <span>
+        <a data-action="guest-list#toggle" href="" class="number-of-attendees__toggle">
+          <%=num_attendees%> People
+        </a>
+         are attending 
+      </span>
+    <%end%>
+</span>

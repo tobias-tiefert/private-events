@@ -1,0 +1,11 @@
+<div class="container-home">
+  <h2 class="event-type-title">
+    Upcomming Events
+  </h2>
+  <%= render "event_tile", events: @events.upcomming, css_class: "events" %>
+  
+  <h2 class="event-type-title">
+    Past Events
+  </h2>
+  <%= render "event_tile", events: @events.past, css_class: "events past_events" %>
+</div>

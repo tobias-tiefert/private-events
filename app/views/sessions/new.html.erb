@@ -1,0 +1,21 @@
+<div class="login-form">
+  <h1>
+    Login
+  </h1>
+  <%= form_with url: session_path do |form| %>
+    <div class="labe-field-group">
+      <%= form.label :email_address %>
+      <%= form.email_field :email_address, required: true, autofocus: true, autocomplete: "username", placeholder: "Enter your email address", value: params[:email_address] %>
+    </div>
+    <div class="labe-field-group">  
+      <%= form.label :password %>
+      <%= form.password_field :password, required: true, autocomplete: "current-password", placeholder: "Enter your password", maxlength: 72 %>
+    </div>
+    <%= form.submit "Log in" %>
+    <%= form.button "Log in", class: "button button--primary button-sign-in"  %>
+  <% end %>
+  <div class="additional-links">
+    <%= link_to "Forgot password?", new_password_path %>
+  </div>
+  
+</div>

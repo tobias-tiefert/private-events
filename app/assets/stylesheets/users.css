@@ -1,0 +1,6 @@
+@layer components{
+  .container-user{
+    padding: 0 3rem;
+    width: 100%;
+  }
+}
