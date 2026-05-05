@@ -1,24 +1,11 @@
-# README
+# Private Event - The Odin Project
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is my take on the Private Events project from the Odin Project Ruby on Rails path:
+https://www.theodinproject.com/lessons/ruby-on-rails-private-events
 
-Things you may want to cover:
+## Scope
+Users can create events, either private or public.
 
-* Ruby version
+The host can invite guests to private events. Only the host and the guest see these events and can attend. 
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Public events can be seen by anyone but only logged in users can attend.
