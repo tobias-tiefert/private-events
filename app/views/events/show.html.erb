@@ -8,7 +8,7 @@
   <div class="event-detail <%= "past_event-detail" if @event.past? %>">
     <div class="event-detail__time-and-location">
       <%= formated_event_date_time(@event.date, @event.time, "event-detail__time") %>
-      <%= tag.div @event.location, class: "event-detail__location"%>
+      <%= tag.div "at #{@event.location}", class: "event-detail__location"%>
     </div>
     <%= tag.h1 @event.title, class: "event-detail__title"%>
     <% if @event.public_event?%>

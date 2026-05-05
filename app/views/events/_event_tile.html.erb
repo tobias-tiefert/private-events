@@ -5,7 +5,7 @@
         <%= link_to event.title, event_path(event.id), class: "event_card__title" %>
       </h3>
       <%= formated_event_date_time(event.date, event.time, "event-detail__time") %>
-      <%= tag.div event.location, class: "event-card__location"%>
+      <%= tag.div "at #{event.location}", class: "event-card__location"%>
       <%= link_to "Details", event_path(event.id), class: "button  event-card__button" %>
     </div>
   <% end %>
